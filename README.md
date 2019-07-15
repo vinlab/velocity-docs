@@ -6,7 +6,7 @@ Velocity (by Veracode Innovation Labs) is a small, statically compiled executabl
 
 ## Features
 
-- Cross Platform (currently Linux/OS X)
+- Cross Platform (currently Linux/OS X). Windows support coming.
 - CI Agnostic
 - Automatic application identification via Git metadata
 - Automatic binary/module identification and upload
@@ -16,7 +16,7 @@ Velocity (by Veracode Innovation Labs) is a small, statically compiled executabl
 Velocity runs after the build step inside CI.  When run, Velocity does the following:
 1. The Velocity shell script will compare the latest Velocity version.  If it exist locally, it's run.  If not it is downloaded and cached locally.
 2. Identifies the Git URl and branch of the application. This is used to match up the current app with the App Profile on the Veraode Platform.
-3. Examines the local folder to identify the build system used (Mavne/NPM/etc).
+3. Examines the local folder to identify the build system used (Maven/NPM/etc).
 4. Based on the build system, Velocity will automatically package up required files and upload them to the Veracode Platform.
 5. When all files are uploaded, it will initiate a prescan.
 
