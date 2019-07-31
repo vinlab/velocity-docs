@@ -11,6 +11,8 @@ Velocity (by Veracode Innovation Labs) is a small, statically compiled executabl
 - Automatic application identification via Git metadata
 - Automatic binary/module identification and upload
 - Supports Gradle, Maven, NPM, and Yarn (more coming)
+- Generate sizing reports for accurate Veracode licensing costs.
+
 
 ## How it Works
 Velocity runs after the build step inside CI.  When run, Velocity does the following:
@@ -19,8 +21,11 @@ Velocity runs after the build step inside CI.  When run, Velocity does the follo
 3. Examines the local folder to identify the build system used (Maven/NPM/etc).
 4. Based on the build system, Velocity will automatically package up required files and upload them to the Veracode Platform.
 5. When all files are uploaded, it will initiate a prescan.
+6. Once all prescans have completed, run Velocity in report mode to generate a CSV showing project scan sizing.
 
 At the moment full scans are not automatically initiated, but this can be done manually from the Platform.
+
+
 
 ## Supported OS/Architectures
 
@@ -51,6 +56,25 @@ This will invoke the Velocity script and execute Velocity in the current folder.
 ```
 > curl https://veracode-velocity.s3.amazonaws.com/velocity.sh | sh  -s -- </folder/to/scan>
 ```
+
+
+## Reports
+
+To run velocity in report mode:
+```
+> curl https://veracode-velocity.s3.amazonaws.com/velocity.sh | sh  -s -- --report 
+```
+
+This will print the CSV data to standard out, which can easily be piped to any file:
+```
+> curl https://veracode-velocity.s3.amazonaws.com/velocity.sh | sh  -s -- --report > report.csv
+```
+
+Or use the  `--filename` flag to write to a specific file:
+```
+> curl https://veracode-velocity.s3.amazonaws.com/velocity.sh | sh  -s -- --report --filename=report.csv
+```
+
 
 TODO Topics:
 - Installation/Setup
