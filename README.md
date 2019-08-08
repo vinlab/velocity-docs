@@ -39,11 +39,11 @@ Velocity is statically compiled and has no runtime dependencies other than the f
 
 ## Running Velocity
 
-Start by setting up Veracode username/password credentials for Velocity. Ensure that you have username/password and not API tokens. In your environment set the following:
+Start by setting up Veracode key/Secret credentials for Velocity. Username/passwords are not supported in Velocity.  In your environment set the following:
 
 ```
-> export VERACODE_USERNAME=<username>
-> export VERACODE_PASSWORD=<username>
+> export VERACODE_API_KEY_ID=<API Key ID>
+> export VERACODE_API_KEY_SECRET=<API Key Secret>
 ```
 
 Then, within any folder you wish to scan or as part of your post-build step in your CI, run the following:
